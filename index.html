@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Jobs Galore - Reliable Handyman, London Ontario</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            border: none;
+            outline: none;
+        }
+        
+        .form-input.error {
+            border: 2px solid #ef4444;
+        }
+        
+        .error-text {
+            color: #fecaca;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+        
+        .service-card {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #000;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: bold;
+            font-size: 1.125rem;
+            gap: 0.5rem;
+        }
+        
+        .gallery-item {
+            aspect-ratio: 1;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-item:hover {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar with Phone Number -->
+    <div class="bg-white py-4 px-4 md:px-8 lg:px-16">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <img src="logo.png" alt="Green Jobs Galore" class="h-24 md:h-32">
+            <div class="bg-[#2d7a2e] text-white px-6 py-3 rounded-lg text-right">
+                <div class="text-xs mb-1">we are only a phone call away</div>
+                <div class="text-2xl md:text-3xl font-bold">289-903-3128</div>
+                <div class="text-sm font-semibold mt-1">CALL US NOW</div>
+                <div class="text-xs">for an estimate</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="bg-[#2a2a2a] text-white">
+        <div class="max-w-7xl mx-auto px-4 md:px-8 lg:px-16">
+            <div class="flex justify-center space-x-12 py-4">
+                <a href="#home" class="hover:text-[#a8d08d] transition-colors">Home</a>
+                <a href="#contact" class="hover:text-[#a8d08d] transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="bg-[#c4d79b] py-16 px-4 md:px-8 lg:px-16">
+        <div class="max-w-7xl mx-auto">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-[#2a2a2a] text-center mb-12">
+                Reliable Handyman, London Ontario
+            </h1>
+            
+            <!-- Two Column Layout -->
+            <div class="grid md:grid-cols-2 gap-8 items-start">
+                <!-- Left Column - Text Content -->
+                <div class="space-y-8">
+                    <div class="text-center">
+                        <p class="text-lg text-[#2a2a2a] mb-6">
+                            Save money by fixing instead of replacing. Give us a call or shoot us a text to get a no obligation quote.
+                        </p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <h2 class="text-3xl md:text-4xl font-bold text-[#2a2a2a] mb-2">Residential</h2>
+                        <h2 class="text-3xl md:text-4xl font-bold text-[#2a2a2a] mb-4">and</h2>
+                        <h2 class="text-3xl md:text-4xl font-bold text-[#2a2a2a]">Commercial</h2>
+                    </div>
+                    
+                    <div class="text-center">
+                        <p class="text-lg text-[#2a2a2a]">
+                            We specialize in recording our work. We'll give you a pile of photos and videos from before and after the job.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Right Column - Contact Form -->
+                <div class="bg-[#2d7a2e] p-8 rounded-lg shadow-xl">
+                    <form id="contactForm" class="space-y-4">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <input type="text" name="firstName" placeholder="First name" class="form-input" required>
+                                <div class="error-text" style="display: none;"></div>
+                            </div>
+                            <div>
+                                <input type="text" name="lastName" placeholder="Last name" class="form-input" required>
+                                <div class="error-text" style="display: none;"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <input type="email" name="email" placeholder="Email" class="form-input" required>
+                                <div class="error-text" style="display: none;"></div>
+                            </div>
+                            <div>
+                                <input type="tel" name="phone" placeholder="Phone" class="form-input" required>
+                                <div class="error-text" style="display: none;"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="text-white text-sm mb-2 block">
+                                What do you need help with?
+                            </label>
+                            <textarea name="message" rows="4" class="form-input resize-none" required></textarea>
+                            <div class="error-text" style="display: none;"></div>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-[#f5a623] hover:bg-[#e09612] text-white font-bold py-3 px-6 rounded transition-colors">
+                            Submit
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sample Work Images -->
+    <div class="py-8 px-4 md:px-8 lg:px-16 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-1">
+                <img src="carpentersbagwithbeltfulloftoolslaidonwoodentableconstructionsiteSBI305222493.jpg" alt="Tools" class="w-full h-64 object-cover">
+                <img src="carpentersbagwithbeltfulloftoolslaidonwoodentableconstructionsiteSBI305222493.jpg" alt="Deck work" class="w-full h-64 object-cover">
+                <img src="carpentersbagwithbeltfulloftoolslaidonwoodentableconstructionsiteSBI305222493.jpg" alt="Repairs" class="w-full h-64 object-cover">
+                <img src="carpentersbagwithbeltfulloftoolslaidonwoodentableconstructionsiteSBI305222493.jpg" alt="Finish work" class="w-full h-64 object-cover">
+            </div>
+        </div>
+    </div>
+
+    <!-- Service Cards Section -->
+    <div class="bg-[#c4d79b] py-12 px-4 md:px-8 lg:px-16">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- INSIDE Card -->
+                <div class="text-center">
+                    <div class="service-card">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                        </svg>
+                        <span>INSIDE</span>
+                    </div>
+                    <p class="text-[#2a2a2a] text-sm mt-3">
+                        Framing, kitchens, bathrooms, etc.
+                    </p>
+                </div>
+
+                <!-- OUTSIDE Card -->
+                <div class="text-center">
+                    <div class="service-card">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9 22 9 12 15 12 15 22"/>
+                        </svg>
+                        <span>OUTSIDE</span>
+                    </div>
+                    <p class="text-[#2a2a2a] text-sm mt-3">
+                        Decks, fences, sheds, siding, etc.
+                    </p>
+                </div>
+
+                <!-- HANDYMAN Card -->
+                <div class="text-center">
+                    <div class="service-card">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m15 12-8.5 8.5c-.83.83-2.17.83-3 0 0 0 0 0 0 0a2.12 2.12 0 0 1 0-3L12 9"/>
+                            <path d="M17.64 15 22 10.64"/>
+                            <path d="m20.91 11.7-1.25-1.25c-.6-.6-.93-1.4-.93-2.25v-.86L16.01 4.6a5.56 5.56 0 0 0-3.94-1.64H9l.92.82A6.18 6.18 0 0 1 12 8.4v1.56l2 2h2.47l2.26 1.91"/>
+                        </svg>
+                        <span>HANDYMAN</span>
+                    </div>
+                    <p class="text-[#2a2a2a] text-sm mt-3">
+                        Fix it to save money and time.
+                    </p>
+                </div>
+
+                <!-- RECORD Card -->
+                <div class="text-center">
+                    <div class="service-card">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m22 8-6 4 6 4V8Z"/>
+                            <rect width="14" height="12" x="2" y="6" rx="2" ry="2"/>
+                        </svg>
+                        <span>RECORD</span>
+                    </div>
+                    <p class="text-[#2a2a2a] text-sm mt-3">
+                        Get video/photos of before/after
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery Section -->
+    <div class="bg-white py-16 px-4 md:px-8 lg:px-16">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <div class="gallery-item"><img src="August2024_Bathroomupdate.jpg" alt="Project 1"></div>
+                <div class="gallery-item"><img src="2023041011_04.jpg" alt="Project 2"></div>
+                <div class="gallery-item"><img src="2024031915_53_04.jpg" alt="Project 3"></div>
+                <div class="gallery-item"><img src="20240319_15_53_25.jpg" alt="Project 4"></div>
+                <div class="gallery-item"><img src="20240319_15_53_46.jpg" alt="Project 5"></div>
+                <div class="gallery-item"><img src="2024050317_11.jpg" alt="Project 6"></div>
+                <div class="gallery-item"><img src="2024050GAZEBO.jpg" alt="Project 7"></div>
+                <div class="gallery-item"><img src="2023080515_42.jpg" alt="Project 8"></div>
+                <div class="gallery-item"><img src="20231206.jpg" alt="Project 9"></div>
+                <div class="gallery-item"><img src="2022120913_08.jpg" alt="Project 10"></div>
+                <div class="gallery-item"><img src="2022111011_23.jpg" alt="Project 11"></div>
+                <div class="gallery-item"><img src="2022101315_44.jpg" alt="Project 12"></div>
+                <div class="gallery-item"><img src="2022081220_38.png" alt="Project 13"></div>
+                <div class="gallery-item"><img src="backdeack.jpg" alt="Project 14"></div>
+                <div class="gallery-item"><img src="stairrailbalusterandpost.jpg" alt="Project 15"></div>
+                <div class="gallery-item"><img src="ileachloe.jpg" alt="Project 16"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom CTA Section -->
+    <div class="bg-[#c4d79b] py-12 px-4 md:px-8 lg:px-16">
+        <div class="max-w-4xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <img src="carpentersbagwithbeltfulloftoolslaidonwoodentableconstructionsiteSBI305222493.jpg" alt="Tools" class="w-full rounded-lg shadow-lg">
+                <div class="text-center md:text-left">
+                    <a href="https://www.google.com/search?q=green+jobs+galore" target="_blank" rel="noopener noreferrer" class="inline-block bg-[#a8d08d] hover:bg-[#8fb876] text-[#2a2a2a] font-semibold py-3 px-8 rounded-lg transition-colors">
+                        GOOGLE REVIEW →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-[#2a2a2a] text-white py-8 px-4 md:px-8 lg:px-16">
+        <div class="max-w-7xl mx-auto text-center">
+            <p class="text-sm">
+                © 2022-2025, Green Jobs Galore, A Bizbio Inc. Company.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Form validation and submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                firstName: this.firstName.value,
+                lastName: this.lastName.value,
+                email: this.email.value,
+                phone: this.phone.value,
+                message: this.message.value
+            };
+            
+            // Validate email
+            const emailRegex = /\S+@\S+\.\S+/;
+            if (!emailRegex.test(formData.email)) {
+                alert('Please enter a valid email address');
+                return;
+            }
+            
+            // Create mailto link
+            const subject = encodeURIComponent('Green Jobs Galore - Service Request');
+            const body = encodeURIComponent(
+                `Name: ${formData.firstName} ${formData.lastName}\n` +
+                `Email: ${formData.email}\n` +
+                `Phone: ${formData.phone}\n\n` +
+                `Message:\n${formData.message}`
+            );
+            
+            window.location.href = `mailto:info@greenjobsgalore.com?subject=${subject}&body=${body}`;
+            
+            // Reset form
+            this.reset();
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
