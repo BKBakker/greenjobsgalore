@@ -132,7 +132,13 @@
 
                 <!-- Right Column - Contact Form -->
                 <div class="bg-[#2d7a2e] p-8 rounded-lg shadow-xl">
-                    <form action="submit-form.php" method="POST" id="contactForm" class="space-y-4">
+                    <form action="https://api.web3forms.com/submit" method="POST" id="contactForm" class="space-y-4">
+                        <!-- Web3Forms Access Key -->
+                        <input type="hidden" name="access_key" value="19b94879-2d53-4033-acce-540e60c1a9e2">
+                        
+                        <!-- Redirect after submission -->
+                        <input type="hidden" name="redirect" value="https://greenjobsgalore.ca/thank-you.html">
+                        
                         <div class="grid grid-cols-2 gap-4">
                             <div>
                                 <input type="text" name="firstName" placeholder="First name" class="form-input" required>
@@ -242,22 +248,10 @@
     <div class="bg-white py-16 px-4 md:px-8 lg:px-16">
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                <div class="gallery-item"><img src="August2024_Bathroomupdate.jpg" alt="Project 1"></div>
-                <div class="gallery-item"><img src="2023041011_04.jpg" alt="Project 2"></div>
-                <div class="gallery-item"><img src="2024031915_53_04.jpg" alt="Project 3"></div>
-                <div class="gallery-item"><img src="20240319_15_53_25.jpg" alt="Project 4"></div>
-                <div class="gallery-item"><img src="20240319_15_53_46.jpg" alt="Project 5"></div>
-                <div class="gallery-item"><img src="2024050317_11.jpg" alt="Project 6"></div>
-                <div class="gallery-item"><img src="2024050GAZEBO.jpg" alt="Project 7"></div>
-                <div class="gallery-item"><img src="2023080515_42.jpg" alt="Project 8"></div>
-                <div class="gallery-item"><img src="20231206.jpg" alt="Project 9"></div>
-                <div class="gallery-item"><img src="2022120913_08.jpg" alt="Project 10"></div>
-                <div class="gallery-item"><img src="2022111011_23.jpg" alt="Project 11"></div>
-                <div class="gallery-item"><img src="2022101315_44.jpg" alt="Project 12"></div>
-                <div class="gallery-item"><img src="2022081220_38.png" alt="Project 13"></div>
-                <div class="gallery-item"><img src="backdeack.jpg" alt="Project 14"></div>
-                <div class="gallery-item"><img src="stairrailbalusterandpost.jpg" alt="Project 15"></div>
-                <div class="gallery-item"><img src="ileachloe.jpg" alt="Project 16"></div>
+                <div class="gallery-item"><img src="August2024_Bathroomupdate.jpg" alt="Bathroom Update"></div>
+                <div class="gallery-item"><img src="backdeack.jpg" alt="Back Deck"></div>
+                <div class="gallery-item"><img src="stairrailbalusterandpost.jpg" alt="Stair Rail"></div>
+                <div class="gallery-item"><img src="ileachloe.jpg" alt="Team Photo"></div>
             </div>
         </div>
     </div>
@@ -286,25 +280,17 @@
     </footer>
 
     <script>
-        // Check for success/error messages on page load
-        window.addEventListener('DOMContentLoaded', function() {
-            const urlParams = new URLSearchParams(window.location.search);
+        // Web3Forms success handling
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('success')) {
             const messageDiv = document.getElementById('formMessage');
-            
-            if (urlParams.has('success')) {
-                messageDiv.textContent = 'Thank you! Your message has been sent successfully.';
+            if (messageDiv) {
+                messageDiv.textContent = 'Thank you! Your message has been sent successfully. We will contact you soon.';
                 messageDiv.style.display = 'block';
                 messageDiv.style.color = '#a8d08d';
-                // Clear the URL parameter
-                window.history.replaceState({}, document.title, window.location.pathname);
-            } else if (urlParams.has('error')) {
-                messageDiv.textContent = 'Sorry, there was an error sending your message. Please try calling us instead.';
-                messageDiv.style.display = 'block';
-                messageDiv.style.color = '#ff6b6b';
-                // Clear the URL parameter
-                window.history.replaceState({}, document.title, window.location.pathname);
+                messageDiv.style.fontWeight = 'bold';
             }
-        });
+        }
         
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -321,11 +307,15 @@
         
         // Form submission feedback
         const form = document.getElementById('contactForm');
-        form.addEventListener('submit', function(e) {
-            const button = form.querySelector('button[type="submit"]');
-            button.textContent = 'Sending...';
-            button.disabled = true;
-        });
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                const button = form.querySelector('button[type="submit"]');
+                if (button) {
+                    button.textContent = 'Sending...';
+                    button.disabled = true;
+                }
+            });
+        }
     </script>
 </body>
 </html>

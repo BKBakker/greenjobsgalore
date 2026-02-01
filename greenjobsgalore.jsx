@@ -60,25 +60,9 @@ const GreenJobsGalore = () => {
     const newErrors = validateForm();
     
     if (Object.keys(newErrors).length === 0) {
-      // Create mailto link
-      const subject = encodeURIComponent('Green Jobs Galore - Service Request');
-      const body = encodeURIComponent(
-        `Name: ${formData.firstName} ${formData.lastName}\n` +
-        `Email: ${formData.email}\n` +
-        `Phone: ${formData.phone}\n\n` +
-        `Message:\n${formData.message}`
-      );
-      
-      window.location.href = `mailto:info@greenjobsgalore.com?subject=${subject}&body=${body}`;
-      
-      // Reset form
-      setFormData({
-        firstName: '',
-        lastName: '',
-        email: '',
-        phone: '',
-        message: ''
-      });
+      // Web3Forms will handle the actual submission
+      // The form will submit naturally with the access_key
+      return true;
     } else {
       setErrors(newErrors);
     }
@@ -86,18 +70,6 @@ const GreenJobsGalore = () => {
 
   const galleryImages = [
     'August2024_Bathroomupdate.jpg',
-    '2023041011_04.jpg',
-    '2024031915_53_04.jpg',
-    '20240319_15_53_25.jpg',
-    '20240319_15_53_46.jpg',
-    '2024050317_11.jpg',
-    '2024050GAZEBO.jpg',
-    '2023080515_42.jpg',
-    '20231206.jpg',
-    '2022120913_08.jpg',
-    '2022111011_23.jpg',
-    '2022101315_44.jpg',
-    '2022081220_38.png',
     'backdeack.jpg',
     'stairrailbalusterandpost.jpg',
     'ileachloe.jpg'
@@ -170,7 +142,11 @@ const GreenJobsGalore = () => {
 
             {/* Right Column - Contact Form */}
             <div className="bg-[#2d7a2e] p-8 rounded-lg shadow-xl">
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form action="https://api.web3forms.com/submit" method="POST" onSubmit={handleSubmit} className="space-y-4">
+                {/* Web3Forms Access Key */}
+                <input type="hidden" name="access_key" value="19b94879-2d53-4033-acce-540e60c1a9e2" />
+                <input type="hidden" name="redirect" value="https://greenjobsgalore.ca/thank-you.html" />
+                
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <input
@@ -342,7 +318,7 @@ const GreenJobsGalore = () => {
       <footer className="bg-[#2a2a2a] text-white py-8 px-4 md:px-8 lg:px-16">
         <div className="max-w-7xl mx-auto text-center">
           <p className="text-sm">
-            © 2022-2025, Green Jobs Galore, A Bizbio Inc. Company.
+            © 2022-2026, Green Jobs Galore, A Bizbio Inc. Company.
           </p>
         </div>
       </footer>
