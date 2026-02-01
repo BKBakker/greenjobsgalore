@@ -247,18 +247,6 @@ const GreenJobsGalore = () => {
         </div>
       </div>
 
-      {/* Sample Work Images */}
-      <div className="py-8 px-4 md:px-8 lg:px-16 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-1">
-            <img src="carpentersbagwithbeltfulloftoolslaidonwoodentableconstructionsiteSBI305222493.jpg" alt="Tools" className="w-full h-64 object-cover" />
-            <img src="carpentersbagwithbeltfulloftoolslaidonwoodentableconstructionsiteSBI305222493.jpg" alt="Deck work" className="w-full h-64 object-cover" />
-            <img src="carpentersbagwithbeltfulloftoolslaidonwoodentableconstructionsiteSBI305222493.jpg" alt="Repairs" className="w-full h-64 object-cover" />
-            <img src="carpentersbagwithbeltfulloftoolslaidonwoodentableconstructionsiteSBI305222493.jpg" alt="Finish work" className="w-full h-64 object-cover" />
-          </div>
-        </div>
-      </div>
-
       {/* Service Cards Section */}
       <div className="bg-[#c4d79b] py-12 px-4 md:px-8 lg:px-16">
         <div className="max-w-7xl mx-auto">
@@ -338,7 +326,7 @@ const GreenJobsGalore = () => {
             />
             <div className="text-center md:text-left">
               <a 
-                href="https://www.google.com/search?q=green+jobs+galore" 
+                href="https://g.page/r/CQksu5s2oN8BEBM/review" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-block bg-[#a8d08d] hover:bg-[#8fb876] text-[#2a2a2a] font-semibold py-3 px-8 rounded-lg transition-colors"
