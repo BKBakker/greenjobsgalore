@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Green Jobs Galore - Reliable Handyman, London Ontario</title>
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         * {
@@ -126,7 +132,7 @@
 
                 <!-- Right Column - Contact Form -->
                 <div class="bg-[#2d7a2e] p-8 rounded-lg shadow-xl">
-                    <form id="contactForm" class="space-y-4">
+                    <form action="submit-form.php" method="POST" id="contactForm" class="space-y-4">
                         <div class="grid grid-cols-2 gap-4">
                             <div>
                                 <input type="text" name="firstName" placeholder="First name" class="form-input" required>
@@ -160,6 +166,9 @@
                         <button type="submit" class="w-full bg-[#f5a623] hover:bg-[#e09612] text-white font-bold py-3 px-6 rounded transition-colors">
                             Submit
                         </button>
+                        
+                        <!-- Success/Error Messages -->
+                        <div id="formMessage" class="text-white text-sm text-center" style="display: none;"></div>
                     </form>
                 </div>
             </div>
@@ -271,44 +280,30 @@
     <footer class="bg-[#2a2a2a] text-white py-8 px-4 md:px-8 lg:px-16">
         <div class="max-w-7xl mx-auto text-center">
             <p class="text-sm">
-                © 2022-2025, Green Jobs Galore, A Bizbio Inc. Company.
+                © 2022-2026, Green Jobs Galore, A Bizbio Inc. Company.
             </p>
         </div>
     </footer>
 
     <script>
-        // Form validation and submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+        // Check for success/error messages on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const messageDiv = document.getElementById('formMessage');
             
-            const formData = {
-                firstName: this.firstName.value,
-                lastName: this.lastName.value,
-                email: this.email.value,
-                phone: this.phone.value,
-                message: this.message.value
-            };
-            
-            // Validate email
-            const emailRegex = /\S+@\S+\.\S+/;
-            if (!emailRegex.test(formData.email)) {
-                alert('Please enter a valid email address');
-                return;
+            if (urlParams.has('success')) {
+                messageDiv.textContent = 'Thank you! Your message has been sent successfully.';
+                messageDiv.style.display = 'block';
+                messageDiv.style.color = '#a8d08d';
+                // Clear the URL parameter
+                window.history.replaceState({}, document.title, window.location.pathname);
+            } else if (urlParams.has('error')) {
+                messageDiv.textContent = 'Sorry, there was an error sending your message. Please try calling us instead.';
+                messageDiv.style.display = 'block';
+                messageDiv.style.color = '#ff6b6b';
+                // Clear the URL parameter
+                window.history.replaceState({}, document.title, window.location.pathname);
             }
-            
-            // Create mailto link
-            const subject = encodeURIComponent('Green Jobs Galore - Service Request');
-            const body = encodeURIComponent(
-                `Name: ${formData.firstName} ${formData.lastName}\n` +
-                `Email: ${formData.email}\n` +
-                `Phone: ${formData.phone}\n\n` +
-                `Message:\n${formData.message}`
-            );
-            
-            window.location.href = `mailto:info@greenjobsgalore.com?subject=${subject}&body=${body}`;
-            
-            // Reset form
-            this.reset();
         });
         
         // Smooth scrolling for navigation links
@@ -322,6 +317,14 @@
                     });
                 }
             });
+        });
+        
+        // Form submission feedback
+        const form = document.getElementById('contactForm');
+        form.addEventListener('submit', function(e) {
+            const button = form.querySelector('button[type="submit"]');
+            button.textContent = 'Sending...';
+            button.disabled = true;
         });
     </script>
 </body>
